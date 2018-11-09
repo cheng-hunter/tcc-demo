@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd ">
+
+    <context:component-scan base-package="org.mengyun.tcctransaction.sample"/>
+
+
+    <bean class="org.mengyun.tcctransaction.spring.recover.DefaultRecoverConfig">
+        <property name="maxRetryCount" value="5"/>
+        <property name="recoverDuration" value="60"/>
+        <property name="cronExpression" value="0/30 * * * * ?"/>
+    </bean>
+
+    <bean id="objectSerializer" class="org.mengyun.tcctransaction.serializer.KryoPoolSerializer"/>
+
+    <bean id="transactionRepository"
+    class="org.mengyun.tcctransaction.spring.repository.SpringJdbcTransactionRepository">
+    <property name="dataSource" ref="tccDataSource"/>
+    <property name="domain" value="REDPACKET"/>
+    <property name="tbSuffix" value="_RED"/>
+     <property name="serializer" ref="objectSerializer"/>
+    </bean>
+
+    <bean id="tccDataSource"
+          class="org.apache.commons.dbcp.BasicDataSource"
+          destroy-method="close">
+        <property name="driverClassName" value="${jdbc.driverClassName}"/>
+        <property name="url" value="${tcc.jdbc.url}"/>
+        <property name="username" value="${tcc.jdbc.username}"/>
+        <property name="password" value="${tcc.jdbc.password}"/>
+        <property name="maxActive" value="50"/>
+        <property name="minIdle" value="5"/>
+        <property name="maxIdle" value="20"/>
+        <property name="initialSize" value="30"/>
+        <property name="logAbandoned" value="true"/>
+        <property name="removeAbandoned" value="true"/>
+        <property name="removeAbandonedTimeout" value="10"/>
+        <property name="maxWait" value="1000"/>
+        <property name="timeBetweenEvictionRunsMillis" value="10000"/>
+        <property name="numTestsPerEvictionRun" value="10"/>
+        <property name="minEvictableIdleTimeMillis" value="10000"/>
+        <property name="validationQuery" value="SELECT NOW() FROM DUAL"/>
+    </bean>
+
+    <!--本地文件模式-->
+
+<!--
+    <bean id="transactionRepository" class="org.mengyun.tcctransaction.repository.FileSystemTransactionRepository">
+        <property name="rootPath" value="/home/hunter/tcc"/>
+    </bean>-->
+
+
+</beans>
