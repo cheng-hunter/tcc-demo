@@ -13,25 +13,25 @@
 
     <bean id="orderDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="mapperInterface"
-                  value="org.mengyun.tcctransaction.sample.order.infrastructure.dao.OrderDao"></property>
+                  value="com.sf.demo.order.dao.OrderDao"></property>
         <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
     </bean>
 
     <bean id="orderLineDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="mapperInterface"
-                  value="org.mengyun.tcctransaction.sample.order.infrastructure.dao.OrderLineDao"></property>
+                  value="com.sf.demo.order.dao.OrderLineDao"></property>
         <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
     </bean>
 
     <bean id="shopDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="mapperInterface"
-                  value="org.mengyun.tcctransaction.sample.order.infrastructure.dao.ShopDao"></property>
+                  value="com.sf.demo.order.dao.ShopDao"></property>
         <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
     </bean>
 
     <bean id="productDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="mapperInterface"
-                  value="org.mengyun.tcctransaction.sample.order.infrastructure.dao.ProductDao"/>
+                  value="com.sf.demo.order.dao.ProductDao"/>
         <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
     </bean>
 

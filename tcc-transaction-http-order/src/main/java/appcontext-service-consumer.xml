@@ -29,28 +29,28 @@
     <bean id="captialTradeOrderService" class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean">
         <property name="serviceUrl" value="http://127.0.0.1:9992/remoting/CapitalTradeOrderService"/>
         <property name="serviceInterface"
-                  value="org.mengyun.tcctransaction.sample.http.capital.api.CapitalTradeOrderService"/>
+                  value="com.sf.demo.capital.api.CapitalTradeOrderService"/>
         <property name="httpInvokerRequestExecutor" ref="httpInvokerRequestExecutor"/>
     </bean>
 
     <bean id="capitalAccountService" class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean">
         <property name="serviceUrl" value="http://127.0.0.1:9992/remoting/CapitalAccountService"/>
         <property name="serviceInterface"
-                  value="org.mengyun.tcctransaction.sample.http.capital.api.CapitalAccountService"/>
+                  value="com.sf.demo.capital.api.CapitalAccountService"/>
         <property name="httpInvokerRequestExecutor" ref="httpInvokerRequestExecutor"/>
     </bean>
 
     <bean id="redPacketAccountService" class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean">
         <property name="serviceUrl" value="http://127.0.0.1:9991/remoting/RedPacketAccountService"/>
         <property name="serviceInterface"
-                  value="org.mengyun.tcctransaction.sample.http.redpacket.api.RedPacketAccountService"/>
+                  value="com.sf.demo.redpacket.api.RedPacketAccountService"/>
         <property name="httpInvokerRequestExecutor" ref="httpInvokerRequestExecutor"/>
     </bean>
 
     <bean id="redPacketTradeOrderService" class="org.springframework.remoting.httpinvoker.HttpInvokerProxyFactoryBean">
         <property name="serviceUrl" value="http://127.0.0.1:9991/remoting/RedPacketTradeOrderService"/>
         <property name="serviceInterface"
-                  value="org.mengyun.tcctransaction.sample.http.redpacket.api.RedPacketTradeOrderService"/>
+                  value="com.sf.demo.redpacket.api.RedPacketTradeOrderService"/>
         <property name="httpInvokerRequestExecutor" ref="httpInvokerRequestExecutor"/>
     </bean>
 
