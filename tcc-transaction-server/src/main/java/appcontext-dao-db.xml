@@ -25,19 +25,19 @@
     <property name="validationQuery" value="SELECT NOW() FROM DUAL"/>
     </bean>
 
-    <bean id="ordOrderDao" class="org.mengyun.tcctransaction.server.dao.JdbcTransactionDao">
+    <bean id="ordOrderDao" class="com.sf.tcc.server.dao.JdbcTransactionDao">
         <property name="dataSource" ref="dataSource"/>
         <property name="tableSuffix" value="ORD"/>
         <property name="domain" value="ORD"/>
     </bean>
 
-    <bean id="redOrderDao" class="org.mengyun.tcctransaction.server.dao.JdbcTransactionDao">
+    <bean id="redOrderDao" class="com.sf.tcc.server.dao.JdbcTransactionDao">
         <property name="dataSource" ref="dataSource"/>
         <property name="tableSuffix" value="RED"/>
         <property name="domain" value="RED"/>
     </bean>
 
-    <bean id="capOrderDao" class="org.mengyun.tcctransaction.server.dao.JdbcTransactionDao">
+    <bean id="capOrderDao" class="com.sf.tcc.server.dao.JdbcTransactionDao">
         <property name="dataSource" ref="dataSource"/>
         <property name="tableSuffix" value="CAP"/>
         <property name="domain" value="CAP"/>

@@ -1,4 +1,4 @@
-package org.mengyun.tcctransaction.server.vo;
+package com.sf.tcc.server.vo;
 
 import org.springframework.http.HttpStatus;
 

@@ -1,8 +1,8 @@
-package org.mengyun.tcctransaction.server.dao;
+package com.sf.tcc.server.dao;
 
 
-import org.mengyun.tcctransaction.server.vo.PageVo;
-import org.mengyun.tcctransaction.server.vo.TransactionVo;
+import com.sf.tcc.server.vo.PageVo;
+import com.sf.tcc.server.vo.TransactionVo;
 
 import javax.sql.DataSource;
 import javax.xml.bind.DatatypeConverter;

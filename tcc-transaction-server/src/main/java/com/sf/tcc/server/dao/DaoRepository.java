@@ -1,4 +1,4 @@
-package org.mengyun.tcctransaction.server.dao;
+package com.sf.tcc.server.dao;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
