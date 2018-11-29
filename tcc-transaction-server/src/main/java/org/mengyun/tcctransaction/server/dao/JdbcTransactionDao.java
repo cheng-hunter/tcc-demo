@@ -38,7 +38,6 @@ public class JdbcTransactionDao implements TransactionDao {
         return KEY_NAME_SPACE + "_" + tableSuffix;
     }
 
-    @Override
     public List<TransactionVo> findTransactions(Integer pageNum, int pageSize) {
 
         Connection connection = getConnection();
@@ -82,7 +81,6 @@ public class JdbcTransactionDao implements TransactionDao {
         return transactionVos;
     }
 
-    @Override
     public Integer countOfFindTransactions() {
 
         Connection connection = getConnection();
@@ -108,7 +106,6 @@ public class JdbcTransactionDao implements TransactionDao {
         return 0;
     }
 
-    @Override
     public void resetRetryCount(String globalTxId, String branchQualifier) {
 
         Connection connection = getConnection();
@@ -131,7 +128,6 @@ public class JdbcTransactionDao implements TransactionDao {
         }
     }
 
-    @Override
     public void delete(String globalTxId, String branchQualifier) {
         Connection connection = getConnection();
         PreparedStatement preparedStatement = null;
@@ -152,7 +148,6 @@ public class JdbcTransactionDao implements TransactionDao {
         }
     }
 
-    @Override
     public void confirm(String globalTxId, String branchQualifier) {
         Connection connection = getConnection();
         PreparedStatement preparedStatement = null;
@@ -174,7 +169,6 @@ public class JdbcTransactionDao implements TransactionDao {
         }
     }
 
-    @Override
     public void cancel(String globalTxId, String branchQualifier) {
         Connection connection = getConnection();
         PreparedStatement preparedStatement = null;
@@ -196,7 +190,6 @@ public class JdbcTransactionDao implements TransactionDao {
         }
     }
 
-    @Override
     public String getDomain() {
         return domain;
     }
