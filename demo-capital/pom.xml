@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.mengyun</groupId>
-    <artifactId>tcc-transaction-http-capital</artifactId>
+    <groupId>com.sf.tcc</groupId>
+    <artifactId>demo-capital</artifactId>
     <version>1.2.4.17</version>
     <packaging>war</packaging>
 
@@ -52,8 +52,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.mengyun</groupId>
-            <artifactId>tcc-transaction-http-capital-api</artifactId>
+            <groupId>com.sf.tcc</groupId>
+            <artifactId>demo-capital-api</artifactId>
             <version>${project.version}</version>
         </dependency>
 

@@ -3,13 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>org.mengyun</groupId>
-    <artifactId>tcc-transaction-http-order</artifactId>
+    <groupId>com.sf.tcc</groupId>
+    <artifactId>demo-redpacket</artifactId>
     <version>1.2.4.17</version>
     <packaging>war</packaging>
 
-
     <build>
+
         <resources>
             <resource>
                 <directory>src/main/java</directory>
@@ -26,6 +26,8 @@
                 </includes>
             </resource>
         </resources>
+
+
         <plugins>
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
@@ -37,7 +39,7 @@
                         <contextPath>/</contextPath>
                     </webApp>
                     <httpConnector>
-                        <port>8883</port>
+                        <port>8881</port>
                     </httpConnector>
                 </configuration>
             </plugin>
@@ -49,24 +51,19 @@
     </properties>
 
     <dependencies>
-
         <dependency>
-            <groupId>org.mengyun</groupId>
-            <artifactId>tcc-transaction-http-capital-api</artifactId>
-            <version>${project.version}</version>
+            <groupId>com.sf.tcc</groupId>
+            <artifactId>demo-redpacket-api</artifactId>
+           <version>${project.version}</version>
         </dependency>
-        <dependency>
-            <groupId>org.mengyun</groupId>
-            <artifactId>tcc-transaction-http-redpacket-api</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-
 
         <dependency>
             <groupId>org.mengyun</groupId>
             <artifactId>tcc-transaction-spring</artifactId>
             <version>${project.version}</version>
         </dependency>
+
+
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-webmvc</artifactId>
@@ -95,39 +92,14 @@
             <artifactId>log4j</artifactId>
             <version>1.2.17</version>
         </dependency>
-        <dependency>
-                 <groupId>javax.servlet</groupId>
-                 <artifactId>servlet-api</artifactId>
-                 <version>2.5</version>
-                 <scope>provided</scope>
-         </dependency>
-        <dependency>
-            <groupId>org.freemarker</groupId>
-            <artifactId>freemarker</artifactId>
-            <version>2.3.21</version>
-        </dependency>
+
+
         <dependency>
             <groupId>commons-dbcp</groupId>
             <artifactId>commons-dbcp</artifactId>
             <version>1.4</version>
         </dependency>
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
-            <version>4.5.3</version>
-        </dependency>
 
-        <dependency>
-            <groupId>commons-httpclient</groupId>
-            <artifactId>commons-httpclient</artifactId>
-            <version>3.1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>commons-codec</groupId>
-            <artifactId>commons-codec</artifactId>
-            <version>1.10</version>
-        </dependency>
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -163,5 +135,7 @@
             <version>3.2.1</version>
         </dependency>
     </dependencies>
+
+
 
 </project>
