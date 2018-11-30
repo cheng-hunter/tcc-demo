@@ -8,7 +8,7 @@
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="capitalDataSource"/>
-        <property name="mapperLocations" value="classpath*:mappper/mapper-*.xml"/>
+        <property name="mapperLocations" value="classpath*:mapper/mapper-*.xml"/>
     </bean>
 
     <bean id="capitalAccountDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
