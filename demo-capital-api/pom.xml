@@ -8,11 +8,4 @@
 	<artifactId>demo-capital-api</artifactId>
 	<version>1.2.4.17</version>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.mengyun</groupId>
-            <artifactId>tcc-transaction-api</artifactId>
-			<version>${project.version}</version>
-        </dependency>
-    </dependencies>
 </project>
