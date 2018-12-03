@@ -17,11 +17,6 @@
         <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
     </bean>
 
-    <bean id="orderLineDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
-        <property name="mapperInterface"
-                  value="com.sf.demo.order.dao.OrderLineDao"></property>
-        <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
-    </bean>
 
     <bean id="shopDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
         <property name="mapperInterface"
