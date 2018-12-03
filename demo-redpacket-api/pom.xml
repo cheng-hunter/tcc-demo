@@ -8,4 +8,13 @@
     <artifactId>demo-redpacket-api</artifactId>
     <version>1.2.4.17</version>
 
+
+    <dependencies>
+    <dependency>
+        <groupId>org.mengyun</groupId>
+        <artifactId>tcc-transaction-spring</artifactId>
+        <version>${project.version}</version>
+        <scope>provided</scope>
+    </dependency>
+    </dependencies>
 </project>

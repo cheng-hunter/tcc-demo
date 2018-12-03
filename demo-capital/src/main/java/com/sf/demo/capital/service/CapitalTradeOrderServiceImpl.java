@@ -27,7 +27,6 @@ public class CapitalTradeOrderServiceImpl implements CapitalTradeOrderService {
     @Autowired
     TradeOrderRepository tradeOrderRepository;
 
-    @Override
     @Compensable(confirmMethod = "confirmRecord", cancelMethod = "cancelRecord", transactionContextEditor = MethodTransactionContextEditor.class)
     @Transactional
     public String record(TransactionContext transactionContext, CapitalTradeOrderDto tradeOrderDto) {
@@ -36,7 +35,6 @@ public class CapitalTradeOrderServiceImpl implements CapitalTradeOrderService {
         System.out.println("capital try record called. time seq:" + DateFormatUtils.format(Calendar.getInstance(), "yyyy-MM-dd HH:mm:ss"));
 
         TradeOrder foundTradeOrder = tradeOrderRepository.findByMerchantOrderNo(tradeOrderDto.getMerchantOrderNo());
-
         //check if trade order has been recorded, if yes, return success directly.
         if (foundTradeOrder == null) {
 
