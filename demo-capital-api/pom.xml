@@ -12,7 +12,7 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.mengyun</groupId>
-			<artifactId>tcc-transaction-api</artifactId>
+			<artifactId>tcc-transaction-spring</artifactId>
 			<version>${project.version}</version>
 			<scope>provided</scope>
 		</dependency>
