@@ -3,6 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <!--配置从服务rpc的接口，tcc还支持dubbo-->
     <bean id="httpInvokerRequestExecutor"
           class="org.springframework.remoting.httpinvoker.CommonsHttpInvokerRequestExecutor">
         <property name="httpClient">

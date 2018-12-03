@@ -15,7 +15,7 @@ public class CapitalAccountServiceImpl implements CapitalAccountService{
     @Autowired
     CapitalAccountRepository capitalAccountRepository;
 
-    @Override
+
     public BigDecimal getCapitalAccountByUserId(long userId) {
         return capitalAccountRepository.findByUserId(userId).getBalanceAmount();
     }

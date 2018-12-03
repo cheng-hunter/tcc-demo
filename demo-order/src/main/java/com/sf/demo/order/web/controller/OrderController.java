@@ -1,8 +1,8 @@
 package com.sf.demo.order.web.controller;
 
+import com.sf.demo.capital.api.CapitalAccountService;
 import com.sf.demo.order.web.controller.vo.PlaceOrderRequest;
-import org.apache.commons.lang3.tuple.ImmutablePair;
-import com.sf.demo.order.service.AccountServiceImpl;
+import com.sf.demo.redpacket.api.RedPacketAccountService;
 import com.sf.demo.order.service.PlaceOrderServiceImpl;
 import com.sf.demo.order.entity.Order;
 import com.sf.demo.order.entity.Product;
@@ -36,8 +36,12 @@ public class OrderController {
     @Autowired
     ProductRepository productRepository;
 
+
     @Autowired
-    AccountServiceImpl accountService;
+    RedPacketAccountService redPacketAccountService;
+
+    @Autowired
+    CapitalAccountService capitalAccountService;
 
     @Autowired
     OrderServiceImpl orderService;
@@ -69,8 +73,8 @@ public class OrderController {
 
         ModelAndView mv = new ModelAndView("product_detail");
 
-        mv.addObject("capitalAmount", accountService.getCapitalAccountByUserId(userId));
-        mv.addObject("redPacketAmount", accountService.getRedPacketAccountByUserId(userId));
+        mv.addObject("capitalAmount", capitalAccountService.getCapitalAccountByUserId(userId));
+        mv.addObject("redPacketAmount", redPacketAccountService.getRedPacketAccountByUserId(userId));
 
         mv.addObject("product", productRepository.findById(productId));
 
@@ -125,8 +129,8 @@ public class OrderController {
 
         mv.addObject("payResult", payResultTip);
 
-        mv.addObject("capitalAmount", accountService.getCapitalAccountByUserId(foundOrder.getPayerUserId()));
-        mv.addObject("redPacketAmount", accountService.getRedPacketAccountByUserId(foundOrder.getPayerUserId()));
+        mv.addObject("capitalAmount", capitalAccountService.getCapitalAccountByUserId(foundOrder.getPayerUserId()));
+        mv.addObject("redPacketAmount", redPacketAccountService.getRedPacketAccountByUserId(foundOrder.getPayerUserId()));
 
         return mv;
     }

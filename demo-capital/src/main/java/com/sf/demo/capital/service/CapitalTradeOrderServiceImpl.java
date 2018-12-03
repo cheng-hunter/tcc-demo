@@ -27,6 +27,12 @@ public class CapitalTradeOrderServiceImpl implements CapitalTradeOrderService {
     @Autowired
     TradeOrderRepository tradeOrderRepository;
 
+    /**
+     * 此处实现接口,添加tcc注解
+     * @param transactionContext
+     * @param tradeOrderDto
+     * @return
+     */
     @Compensable(confirmMethod = "confirmRecord", cancelMethod = "cancelRecord", transactionContextEditor = MethodTransactionContextEditor.class)
     @Transactional
     public String record(TransactionContext transactionContext, CapitalTradeOrderDto tradeOrderDto) {

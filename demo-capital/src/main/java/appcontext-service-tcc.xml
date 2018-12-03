@@ -5,14 +5,17 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd ">
 
 
+    <!--配置事务重试机制（可选）-->
     <bean class="org.mengyun.tcctransaction.spring.recover.DefaultRecoverConfig">
         <property name="maxRetryCount" value="5"/>
         <property name="recoverDuration" value="60"/>
         <property name="cronExpression" value="0/30 * * * * ?"/>
     </bean>
 
+    <!--配置事务序列化-->
     <bean id="kryoSerializer" class="org.mengyun.tcctransaction.serializer.KryoPoolSerializer"/>
 
+    <!--配置事务日志存储-->
     <bean id="transactionRepository"
     class="org.mengyun.tcctransaction.spring.repository.SpringJdbcTransactionRepository">
     <property name="dataSource" ref="tccDataSource"/>
@@ -22,6 +25,7 @@
     </bean>
 
 
+    <!--当前配置必须独立于业务数据库，支持Redis和文件模式-->
     <bean id="tccDataSource"
           class="org.apache.commons.dbcp.BasicDataSource"
           destroy-method="close">

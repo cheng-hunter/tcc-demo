@@ -3,6 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
 
+    <!--暴露当前接口服务-->
     <bean name="capitalTradeOrderService"
           class="com.sf.demo.capital.service.CapitalTradeOrderServiceImpl"/>
 
@@ -23,7 +24,7 @@
                   value="com.sf.demo.capital.api.CapitalAccountService"/>
     </bean>
 
-
+    <!--暴露当前接口服务类型-->
     <bean id="httpServer"
           class="org.springframework.remoting.support.SimpleHttpServerFactoryBean">
         <property name="contexts">

@@ -27,6 +27,12 @@ public class PaymentServiceImpl {
     @Autowired
     OrderRepository orderRepository;
 
+    /**
+     * 添加支付方法
+     * @param order
+     * @param redPacketPayAmount
+     * @param capitalPayAmount
+     */
     @Compensable(confirmMethod = "confirmMakePayment", cancelMethod = "cancelMakePayment", asyncConfirm = false)
     @Transactional
     public void makePayment(Order order, BigDecimal redPacketPayAmount, BigDecimal capitalPayAmount) {

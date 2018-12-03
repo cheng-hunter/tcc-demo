@@ -50,6 +50,7 @@
 
     <dependencies>
 
+        <!--配置从服务接口-->
         <dependency>
             <groupId>com.sf.tcc</groupId>
             <artifactId>demo-capital-api</artifactId>
@@ -61,7 +62,7 @@
             <version>${project.version}</version>
         </dependency>
 
-
+        <!--配置tcc库-->
         <dependency>
             <groupId>org.mengyun</groupId>
             <artifactId>tcc-transaction-spring</artifactId>
