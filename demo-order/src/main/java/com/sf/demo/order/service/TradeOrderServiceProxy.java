@@ -24,11 +24,23 @@ public class TradeOrderServiceProxy {
     RedPacketTradeOrderService redPacketTradeOrderService;
 
 
+    /***
+     *  事务继续传播,当前主事务开始分支事务,并注册
+     * @param transactionContext
+     * @param tradeOrderDto
+     * @return
+     */
     @Compensable(propagation = Propagation.SUPPORTS, confirmMethod = "record", cancelMethod = "record", transactionContextEditor = MethodTransactionContextEditor.class)
     public String record(TransactionContext transactionContext, CapitalTradeOrderDto tradeOrderDto) {
         return capitalTradeOrderService.record(transactionContext, tradeOrderDto);
     }
 
+    /***
+     *  事务继续传播,当前主事务开始分支事务,并注册
+     * @param transactionContext
+     * @param tradeOrderDto
+     * @return
+     */
     @Compensable(propagation = Propagation.SUPPORTS, confirmMethod = "record", cancelMethod = "record", transactionContextEditor = MethodTransactionContextEditor.class)
     public String record(TransactionContext transactionContext, RedPacketTradeOrderDto tradeOrderDto) {
         return redPacketTradeOrderService.record(transactionContext, tradeOrderDto);

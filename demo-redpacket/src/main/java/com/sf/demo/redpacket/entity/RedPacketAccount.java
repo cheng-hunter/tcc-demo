@@ -38,6 +38,7 @@ public class RedPacketAccount {
         if (BigDecimal.ZERO.compareTo(this.balanceAmount) > 0) {
             throw new InsufficientBalanceException();
         }
+//        throw new RuntimeException("模拟异常");
     }
 
     public void transferTo(BigDecimal amount) {
