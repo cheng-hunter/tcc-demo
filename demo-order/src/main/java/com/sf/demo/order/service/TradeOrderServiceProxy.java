@@ -23,9 +23,7 @@ public class TradeOrderServiceProxy {
     @Autowired
     RedPacketTradeOrderService redPacketTradeOrderService;
 
-    /*the propagation need set Propagation.SUPPORTS,otherwise the recover doesn't work,
-      The default value is Propagation.REQUIRED, which means will begin new transaction when recover.
-    */
+
     @Compensable(propagation = Propagation.SUPPORTS, confirmMethod = "record", cancelMethod = "record", transactionContextEditor = MethodTransactionContextEditor.class)
     public String record(TransactionContext transactionContext, CapitalTradeOrderDto tradeOrderDto) {
         return capitalTradeOrderService.record(transactionContext, tradeOrderDto);

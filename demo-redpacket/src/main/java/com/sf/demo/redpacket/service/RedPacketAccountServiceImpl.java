@@ -14,6 +14,7 @@ public class RedPacketAccountServiceImpl implements RedPacketAccountService {
     @Autowired
     RedPacketAccountRepository redPacketAccountRepository;
 
+    @Override
     public BigDecimal getRedPacketAccountByUserId(long userId) {
         return redPacketAccountRepository.findByUserId(userId).getBalanceAmount();
     }

@@ -80,6 +80,18 @@ public class OrderController {
         return mv;
     }
 
+    /**
+     * 方法描述:<br>
+     *     支付接口
+     * @since　
+     * @param redPacketPayAmount
+     * @param shopId
+     * @param payerUserId
+     * @param productId
+     * @return org.springframework.web.servlet.view.RedirectView
+     * @throws
+     * @date 2018/12/03
+     */
     @RequestMapping(value = "/placeorder", method = RequestMethod.POST)
     public RedirectView placeOrder(@RequestParam String redPacketPayAmount,
                                    @RequestParam long shopId,
@@ -90,7 +102,7 @@ public class OrderController {
         PlaceOrderRequest request = buildRequest(redPacketPayAmount, shopId, payerUserId, productId);
 
         String merchantOrderNo = placeOrderService.placeOrder(request.getPayerUserId(), request.getShopId(),
-                request.getProductQuantities(), request.getRedPacketPayAmount());
+                request.getProductId(), request.getRedPacketPayAmount());
         String path=((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getRequest().getContextPath();
         
         return new RedirectView(path+"/payresult/" + merchantOrderNo);
@@ -129,7 +141,7 @@ public class OrderController {
         request.setPayerUserId(payerUserId);
         request.setShopId(shopId);
         request.setRedPacketPayAmount(new BigDecimal(redPacketPayAmount));
-        request.getProductQuantities().add(new ImmutablePair<Long, Integer>(productId, 1));
+        request.setProductId(productId);
         return request;
     }
 }

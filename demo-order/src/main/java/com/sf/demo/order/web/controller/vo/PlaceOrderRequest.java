@@ -17,7 +17,7 @@ public class PlaceOrderRequest {
 
     private BigDecimal redPacketPayAmount;
 
-    private List<Pair<Long, Integer>> productQuantities = new ArrayList<Pair<Long, Integer>>();
+    private long productId;
 
     public long getPayerUserId() {
         return payerUserId;
@@ -43,11 +43,11 @@ public class PlaceOrderRequest {
         this.redPacketPayAmount = redPacketPayAmount;
     }
 
-    public List<Pair<Long, Integer>> getProductQuantities() {
-        return productQuantities;
+    public long getProductId() {
+        return productId;
     }
 
-    public void setProductQuantities(List<Pair<Long, Integer>> productQuantities) {
-        this.productQuantities = productQuantities;
+    public void setProductId(long productId) {
+        this.productId = productId;
     }
 }

@@ -28,16 +28,16 @@ public class PlaceOrderServiceImpl {
     PaymentServiceImpl paymentService;
 
 
-    public String placeOrder(long payerUserId, long shopId, List<Pair<Long, Integer>> productQuantities, BigDecimal redPacketPayAmount) {
+    public String placeOrder(long payerUserId, long shopId, long productId, BigDecimal redPacketPayAmount) {
         //获取商铺信息
     	Shop shop = shopRepository.findById(shopId);
     	//根据商铺主人,下单人,商品信息,创建订单
-        Order order = orderService.createOrder(payerUserId, shop.getOwnerUserId(), productQuantities);
+        Order order = orderService.createOrder(payerUserId, shop.getOwnerUserId(), productId);
 
         Boolean result = false;
         try {
         	//执行支付
-            paymentService.makePayment(order, redPacketPayAmount, order.getTotalAmount().subtract(redPacketPayAmount));
+            paymentService.makePayment(order, redPacketPayAmount, order.getTotalPayAmount().subtract(redPacketPayAmount));
 
         } catch (ConfirmingException confirmingException) {
             //exception throws with the tcc transaction status is CONFIRMING,

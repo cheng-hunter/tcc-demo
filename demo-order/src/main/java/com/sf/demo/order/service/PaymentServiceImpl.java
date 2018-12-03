@@ -31,9 +31,10 @@ public class PaymentServiceImpl {
     @Transactional
     public void makePayment(Order order, BigDecimal redPacketPayAmount, BigDecimal capitalPayAmount) {
 
-        System.out.println("order try make payment called.time seq:" + DateFormatUtils.format(Calendar.getInstance(), "yyyy-MM-dd HH:mm:ss"));
-
-        //check if the order status is DRAFT, if no, means that another call makePayment for the same order happened, ignore this call makePayment.
+        logger.info("order try make payment called.time seq:" + DateFormatUtils.format(Calendar.getInstance(), "yyyy-MM-dd HH:mm:ss"));
+        /**
+         * 检查当前状态为DRAFT ,未支付的订单
+         */
         if (order.getStatus().equals("DRAFT")) {
         	//修改状态为 PAYING 支付中..
             order.pay(redPacketPayAmount, capitalPayAmount);
@@ -54,9 +55,6 @@ public class PaymentServiceImpl {
     }
 
     public void confirmMakePayment(Order order, BigDecimal redPacketPayAmount, BigDecimal capitalPayAmount) throws Exception {
-
-
-
     	logger.info("order confirm make payment called. time seq:" + DateFormatUtils.format(Calendar.getInstance(), "yyyy-MM-dd HH:mm:ss"));
 
         Order foundOrder = orderRepository.findByMerchantOrderNo(order.getMerchantOrderNo());
@@ -65,8 +63,6 @@ public class PaymentServiceImpl {
         if (foundOrder != null && foundOrder.getStatus().equals("PAYING")) {
             order.confirm();
             orderRepository.updateOrder(order);
-            
-//            throw new Exception("sad");
         }
     }
 

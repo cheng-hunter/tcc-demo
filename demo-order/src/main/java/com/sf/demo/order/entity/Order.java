@@ -23,13 +23,13 @@ public class Order implements Serializable {
 
     private BigDecimal capitalPayAmount;
 
+    private BigDecimal totalPayAmount;
+
     private String status = "DRAFT";
 
     private String merchantOrderNo;
 
-    private long version = 1l;
-
-    private List<OrderLine> orderLines = new ArrayList<OrderLine>();
+    private long version = 1L;
 
     public Order() {
 
@@ -49,29 +49,18 @@ public class Order implements Serializable {
         return payeeUserId;
     }
 
-    public BigDecimal getTotalAmount() {
-
-        BigDecimal totalAmount = BigDecimal.ZERO;
-
-        for (OrderLine orderLine : orderLines) {
-
-            totalAmount = totalAmount.add(orderLine.getTotalAmount());
-        }
-        return totalAmount;
-    }
-
-    public void addOrderLine(OrderLine orderLine) {
-        this.orderLines.add(orderLine);
-    }
-
-    public List<OrderLine> getOrderLines() {
-        return Collections.unmodifiableList(this.orderLines);
-    }
-
     public void pay(BigDecimal redPacketPayAmount, BigDecimal capitalPayAmount) {
         this.redPacketPayAmount = redPacketPayAmount;
         this.capitalPayAmount = capitalPayAmount;
         this.status = "PAYING";
+    }
+
+    public BigDecimal getTotalPayAmount() {
+        return totalPayAmount;
+    }
+
+    public void setTotalPayAmount(BigDecimal totalPayAmount) {
+        this.totalPayAmount = totalPayAmount;
     }
 
     public BigDecimal getRedPacketPayAmount() {
